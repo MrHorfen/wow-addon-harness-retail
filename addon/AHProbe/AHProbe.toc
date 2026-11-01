@@ -1,0 +1,13 @@
+## Interface: 120105
+## Title: |cff00ff96AH Probe|r
+## Notes: Minimal Auction House probe for the Retail harness
+## Author: MrHorfen
+## Version: 0.1.0
+## SavedVariables: AHProbeDB
+## X-Category: Auction
+
+# Load order is dependency order. Do not sort this list alphabetically.
+Core\Init.lua
+Core\Env.lua
+Core\Probe.lua
+UI\Main.lua

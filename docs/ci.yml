@@ -1,0 +1,36 @@
+# Optional GitHub Actions workflow.
+# Copy this file to .github/workflows/ci.yml to enable it. Pushing a workflow
+# file requires a token with the `workflow` scope; the initial publication token
+# did not have that scope, so this copy is published as documentation.
+#
+# 可选的 GitHub Actions 工作流。复制到 .github/workflows/ci.yml 即可启用。
+# 推送工作流文件需要带 `workflow` 权限的 token；首次发布所用 token 没有该权限，
+# 因此这里以文档形式提供。
+
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip lupa
+
+      - name: Run offline tests
+        run: python -m unittest discover -s tests -t . -v
+
+      - name: Run repository gate
+        run: python tools/gate.py
+
+      - name: Build the add-on
+        run: python tools/package.py --out dist

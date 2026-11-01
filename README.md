@@ -11,6 +11,15 @@ code.
 > Looking for the dual-client tree (Classic Era 1.15.x + a 1.60.x modern-AH
 > client)? That lives in the companion repository,
 > **wow-addon-harness-classic**.
+>
+> **Can I use this tree for a 1.60.x modern-AH client?** Not as-is. The 1.60
+> client lives in the classic repository's `modern` flavor. You can reuse the
+> four-layer skeleton here, but its adapter, mocks, gate, and tests encode Retail
+> 12.x rules and must be replaced.
+>
+> **1.60.x 现代拍卖行客户端能直接用这套吗？** 不能。1.60 请用 Classic 仓的
+> `modern` flavor。这里的四层骨架可以借鉴，但适配层、mock、门禁和测试都是按
+> 正式服 12.x 写的，必须替换后才能用。
 
 [中文](#中文) · [English](#english)
 
